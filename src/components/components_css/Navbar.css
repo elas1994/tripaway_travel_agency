@@ -1,0 +1,130 @@
+.navbar_items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.875rem;
+  width: 95%;
+  height: 5rem;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 0.8rem;
+  background-color: #ffffff;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.logo_link {
+  text-decoration: none;
+}
+
+.navbar_logo {
+  font-weight: 800;
+  background: linear-gradient(to right, #01959a, #0564a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  transition: linear 0.2s;
+}
+
+.nav_menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 10px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav_menu_link {
+  text-decoration: none;
+  color: #0564a0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav_menu_link:hover {
+  background-color: #01959a;
+  color: #fff;
+}
+
+.mobile_menu_button {
+  display: none;
+}
+
+@media screen and (max-width: 1250px) {
+  .navbar_items {
+    padding: 1rem;
+  }
+
+  .nav_menu_link {
+    font-size: .95rem;
+  }
+
+  .navbar_logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+
+  .navbar_items {
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: #fff;
+    padding: 0 2rem;
+    border-radius: 0;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile_menu_button {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+
+  .nav_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    opacity: 0;
+    padding: 5rem 0 1.875rem 0;
+    margin: 0;
+    align-items: stretch;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .active {
+    left: 0;
+    opacity: 1;
+  }
+
+  .nav_menu_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 1.5rem 0;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .navbar_items {
+    padding: 0 0.1rem;
+  }
+}

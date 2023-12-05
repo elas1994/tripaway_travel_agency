@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./components_css/Navbar.css";
 import { Link } from "react-router-dom";
 
@@ -8,44 +8,68 @@ import {
   FaBriefcase,
   FaAddressBook,
   FaImage,
+  FaBars,
 } from "react-icons/fa";
+
+import { FaXmark } from "react-icons/fa6";
 
 import Home from "../pages/Home";
 
 const Navbar = () => {
+  const [mobileMenu, setMobileMenu] = useState(false);
+
   return (
     <>
       <nav className="navbar_items">
-        <h1 className="navbar_logo">TripAway</h1>
+        <Link className="logo_link" to="/tripaway_travel_agency/">
+          <h1 className="navbar_logo">TripAway</h1>
+        </Link>
 
-        <ul className="nav_menu">
-          <li>
-            <Link to="/tripaway_travel_agency/">
-              <FaHome /> Home
+        <div onClick={() => setMobileMenu(!mobileMenu)} className="menu_icons">
+          {mobileMenu ? (
+            <FaXmark className="mobile_menu_button" />
+          ) : (
+            <FaBars className="mobile_menu_button" />
+          )}
+        </div>
+
+        <ul className={mobileMenu ? "nav_menu active" : "nav_menu"}>
+          <li onClick={() => setMobileMenu(!mobileMenu)}>
+            <Link className="nav_menu_link" to="/tripaway_travel_agency/">
+              <FaHome className="nav_menu_icon" /> Home
             </Link>
           </li>
 
-          <li>
-            <Link to="/tripaway_travel_agency/about">
-              <FaInfoCircle /> About
+          <li onClick={() => setMobileMenu(!mobileMenu)}>
+            <Link className="nav_menu_link" to="/tripaway_travel_agency/about">
+              <FaInfoCircle className="nav_menu_icon" /> About
             </Link>
           </li>
 
-          <li>
-            <Link to="/tripaway_travel_agency/service">
-              <FaBriefcase /> Service
+          <li onClick={() => setMobileMenu(!mobileMenu)}>
+            <Link
+              className="nav_menu_link"
+              to="/tripaway_travel_agency/service"
+            >
+              <FaBriefcase className="nav_menu_icon" /> Service
             </Link>
           </li>
 
-          <li>
-            <Link to="/tripaway_travel_agency/contact">
-              <FaAddressBook /> Contact
+          <li onClick={() => setMobileMenu(!mobileMenu)}>
+            <Link
+              className="nav_menu_link"
+              to="/tripaway_travel_agency/contact"
+            >
+              <FaAddressBook className="nav_menu_icon" /> Contact
             </Link>
           </li>
 
-          <li>
-            <Link to="/tripaway_travel_agency/gallery">
-              <FaImage /> Gallery
+          <li onClick={() => setMobileMenu(!mobileMenu)}>
+            <Link
+              className="nav_menu_link"
+              to="/tripaway_travel_agency/gallery"
+            >
+              <FaImage className="nav_menu_icon" /> Gallery
             </Link>
           </li>
         </ul>
