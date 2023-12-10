@@ -11,7 +11,7 @@ const RecentTrips = () => {
     <div className="recent_trips">
       <h1 className="section_heading">Recent Trips</h1>
       <p className="section_subheading">
-        We can discover unique destinations Together!
+        Discover unique destinations Together
       </p>
 
       <div className="card_container">
